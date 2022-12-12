@@ -116,8 +116,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const numerator = x1 * x2 + y1 * y2;
+  const denominator = Math.sqrt(x1 ** 2 + y1 ** 2) * Math.sqrt(x2 ** 2 + y2 ** 2);
+  const result = Math.acos(numerator / denominator);
+
+  return result;
 }
 
 /**
@@ -132,8 +136,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(number) {
+  return number % 10;
 }
 
 /**
@@ -147,8 +151,8 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(str) {
+  return Number(str);
 }
 
 /**
@@ -164,8 +168,8 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(side1, side2, side3) {
+  return Math.sqrt(side1 ** 2 + side2 ** 2 + side3 ** 2);
 }
 
 /**
@@ -185,8 +189,9 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  const tenInPow = 10 ** pow;
+  return Math.round(num / tenInPow) * tenInPow;
 }
 
 /**
@@ -206,8 +211,13 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(number) {
+  let isPr = true;
+  for (let i = 2; i <= number / 2; i += 1) {
+    if (number % i === 0) isPr = false;
+  }
+
+  return isPr;
 }
 
 /**
@@ -225,8 +235,8 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  return Number(value) ? value : def;
 }
 
 module.exports = {
